@@ -6,7 +6,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Flex from "@/components/Flex";
 // import { MuiOtpInput } from "mui-one-time-password-input";
-import OTPInput from "otp-input-react";
+// import OTPInput from "otp-input-react";
+import OtpInput from 'react-otp-input';
 import Text from "@/components/Text";
 import { COLORS } from "@/utils/colors";
 import RegisterButton from "@/components/RegisterButton";
@@ -81,7 +82,13 @@ export default function BasicModal({
               </Text>
             </Flex>
             {/* <MuiOtpInput value={otp} onChange={handleChange} length={5} /> */}
-            <OTPInput value={otp} onChange={handleChange} OTPLength={5} otpType="number" />
+            {/* <OTPInput value={otp} onChange={handleChange} OTPLength={5} otpType="number" /> */}
+            <OtpInput
+              value={otp} onChange={handleChange}
+              numInputs={5}
+              renderSeparator={<span></span>}
+              renderInput={(props) => <input  className="new-input" {...props} />}
+            />
 
             <Flex mt={"3rem"} width={"100%"}>
               <RegisterButton
